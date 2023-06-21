@@ -1,6 +1,6 @@
 {
   "name": "frontend",
-  "proxy": "http://127.0.0.1:5000/",
+  "proxy": "https://mern-deploy-backend-twq1.onrender.com/",
   "homepage": "/build",  
   "version": "0.1.0",
   "private": true,
