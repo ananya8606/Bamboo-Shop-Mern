@@ -36,7 +36,7 @@ export const createOrder = (order) => async (dispatch, getState) => {
       },
     }
 
-    const { data } = await axios.post(`/api/orders`, order, config)
+    const { data } = await axios.post(`https://mern-deploy-backend-twq1.onrender.com/api/orders`, order, config)
 
     dispatch({
       type: ORDER_CREATE_SUCCESS,
@@ -80,7 +80,7 @@ export const payOrder = (id) => async (dispatch, getState) => {
     }
     console.log(config)
 
-    const { data } = await axios.put(`/api/orders/admin/pay/${id}`, {}, config)
+    const { data } = await axios.put(`https://mern-deploy-backend-twq1.onrender.com/api/orders/admin/pay/${id}`, {}, config)
     dispatch({
       type: ORDER_PAY_SUCCESS,
       payload: data,
@@ -157,7 +157,7 @@ export const listMyOrders = () => async (dispatch, getState) => {
       },
     }
 
-    const { data } = await axios.get(`/api/orders/myorders`, config)
+    const { data } = await axios.get(`https://mern-deploy-backend-twq1.onrender.com/api/orders/myorders`, config)
 
     dispatch({
       type: ORDER_LIST_MY_SUCCESS,
@@ -194,7 +194,7 @@ export const listOrders = () => async (dispatch, getState) => {
       },
     }
 
-    const { data } = await axios.get(`/api/orders/admin/allorders`, config)
+    const { data } = await axios.get(`https://mern-deploy-backend-twq1.onrender.com/api/orders/admin/allorders`, config)
 
     dispatch({
       type: ORDER_LIST_SUCCESS,
