@@ -39,7 +39,7 @@ export const register =
       }
 
       const { data } = await axios.post(
-        `/api/users/register/${funcNumber}`,
+        `https://mern-deploy-backend-twq1.onrender.com/api/users/register/${funcNumber}`,
         { name, email, password },
         config
       )
@@ -79,7 +79,7 @@ export const login = (email, password) => async (dispatch) => {
     }
 
     const { data } = await axios.post(
-      '/api/users/login',
+      'https://mern-deploy-backend-twq1.onrender.com/api/users/login',
       { email, password },
       config
     )
@@ -118,7 +118,7 @@ export const listUsers = () => async (dispatch, getState) => {
       },
     }
 
-    const { data } = await axios.get('/api/users', config)
+    const { data } = await axios.get('https://mern-deploy-backend-twq1.onrender.com/api/users', config)
 
     dispatch({
       type: USER_LIST_SUCCESS,
@@ -153,7 +153,7 @@ export const deleteUser = (id) => async (dispatch, getState) => {
       },
     }
 
-    await axios.delete(`/api/users/${id}`, config)
+    await axios.delete(`https://mern-deploy-backend-twq1.onrender.com/api/users/${id}`, config)
 
     dispatch({
       type: USER_DELETE_SUCCESS,
@@ -191,7 +191,7 @@ export const getUserDetails = (id) => async (dispatch, getState) => {
       },
     }
 
-    const { data } = await axios.get(`/api/users/user/${id}`, config)
+    const { data } = await axios.get(`https://mern-deploy-backend-twq1.onrender.com/api/users/user/${id}`, config)
 
     dispatch({
       type: USER_DETAILS_SUCCESS,
@@ -226,7 +226,7 @@ export const updateLanguage = (language) => async (dispatch, getState) => {
           },
         }
         const { data } = await axios.patch(
-            `/api/user/language`,
+            `https://mern-deploy-backend-twq1.onrender.com/api/user/language`,
             { language }, config );
         dispatch({ type: USER_UPDATE_LANGUAGE_SUCCESS, payload: data });
     } catch (error) {
@@ -259,7 +259,7 @@ console.log("sdfsdf")
       },
     }
 
-    const { data } = await axios.put(`/api/users/updateUser`, user, config)
+    const { data } = await axios.put(`https://mern-deploy-backend-twq1.onrender.com/api/users/updateUser`, user, config)
 
     dispatch({
       type: USER_UPDATE_PROFILE_SUCCESS,
