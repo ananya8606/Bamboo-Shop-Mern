@@ -9,8 +9,9 @@ const cors = require("cors");
 dotenv.config()
 // middleware
 const corsOptions = {
-  origin: "https://mern-deploy-frontend-oz8c.onrender.com/" // frontend URI (ReactJS)
-}
+  origin: "https://mern-deploy-frontend-oz8c.onrender.com" // frontend URI (ReactJS)
+};
+
 connectDB()
 
 const app = express()
