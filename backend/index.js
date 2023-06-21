@@ -5,7 +5,12 @@ const productRoutes = require('./routes/productRoutes.js');
 const userRoutes = require('./routes/userRoutes.js');
 const path = require('path');
 const orderRoutes = require('./routes/orderRoutes.js');
+const cors = require("cors");
 dotenv.config()
+// middleware
+const corsOptions = {
+  origin: "https://mern-deploy-frontend-oz8c.onrender.com/" // frontend URI (ReactJS)
+}
 connectDB()
 
 const app = express()
@@ -14,6 +19,7 @@ will be parsed by Express and the resulting JSON data will be available in req.b
 By calling app.use(express.json()), you are instructing your Express application to use this 
 middleware for all incoming requests.*/
 app.use(express.json())
+app.use(cors(corsOptions));
 const PORT = process.env.PORT || 5000
 /*app.use('/api/products', productRoutes) is configuring the Express application to use the 
 productRoutes middleware for any requests that match the /api/products path.*/
