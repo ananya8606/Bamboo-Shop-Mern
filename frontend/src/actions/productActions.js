@@ -38,7 +38,7 @@ export const listProducts = () => async (dispatch) => {
       type: PRODUCT_LIST_REQUEST,
     })
 
-    const { data } = await axios.get('/api/products')
+    const { data } = await axios.get('https://mern-deploy-backend-twq1.onrender.com/api/products')
     console.log('Data is', data)
     dispatch({
       type: PRODUCT_LIST_SUCCESS,
@@ -61,7 +61,7 @@ export const listProductDetails = (id) => async (dispatch) => {
       type: PRODUCT_DETAILS_REQUEST,
     })
 
-    const { data } = await axios.get(`/api/products/${id}`)
+    const { data } = await axios.get(`https://mern-deploy-backend-twq1.onrender.com/api/products/${id}`)
     console.log('Data is', data)
     dispatch({
       type: PRODUCT_DETAILS_SUCCESS,
@@ -85,7 +85,7 @@ export const listCategoryDetails = (categoryName, cost) => async (dispatch) => {
     })
     console.log('values', categoryName, cost)
     const { data } = await axios.get(
-      `/api/products/category/${categoryName}/${cost}`
+      `https://mern-deploy-backend-twq1.onrender.com/api/products/category/${categoryName}/${cost}`
     )
     console.log('Data is', data)
     dispatch({
@@ -111,7 +111,7 @@ export const listsubCategoryDetails =
       })
       console.log('values', subcategoryName, cost)
       const { data } = await axios.get(
-        `/api/products/subcategory/${subcategoryName}/${cost}`
+        `https://mern-deploy-backend-twq1.onrender.com/api/products/subcategory/${subcategoryName}/${cost}`
       )
       console.log('Data is', data)
       dispatch({
@@ -134,7 +134,7 @@ export const productsSearch = (productName) => async (dispatch) => {
     dispatch({
       type: PRODUCT_SEARCH_REQUEST,
     })
-    const { data } = await axios.get(`/api/products/search/${productName}`)
+    const { data } = await axios.get(`https://mern-deploy-backend-twq1.onrender.com/api/products/search/${productName}`)
     console.log('Data is', data)
     dispatch({
       type: PRODUCT_SEARCH_SUCCESS,
@@ -169,7 +169,7 @@ export const createProductReview =
         },
       }
 
-      await axios.post(`/api/products/${productId}/reviews`, review, config)
+      await axios.post(`https://mern-deploy-backend-twq1.onrender.com/api/products/${productId}/reviews`, review, config)
 
       dispatch({
         type: PRODUCT_CREATE_REVIEW_SUCCESS,
@@ -223,7 +223,7 @@ export const editProduct =
       console.log("id is",id)
 
       await axios.put(
-        `/api/products/product/${id}`,
+        `https://mern-deploy-backend-twq1.onrender.com/api/products/product/${id}`,
         {
           brandName,
           image,
@@ -274,7 +274,7 @@ export const deleteProduct = (id) => async (dispatch, getState) => {
       },
     }
     console.log('config is', config)
-    await axios.delete(`/api/products/product/${id}`, config)
+    await axios.delete(`https://mern-deploy-backend-twq1.onrender.com/api/products/product/${id}`, config)
 
     dispatch({
       type: PRODUCT_DELETE_SUCCESS,
@@ -326,7 +326,7 @@ export const createProduct =
       }
 
       const { data } = await axios.post(
-        `/api/products/productCreate`,
+        `https://mern-deploy-backend-twq1.onrender.com/api/products/productCreate`,
         {
           brandName,
           image,
@@ -380,7 +380,7 @@ export const uploadImg = (formData) => async (dispatch, getState) => {
     }
 
     const { data } = await axios.post(
-      `/api/products/uploadImage`,
+      `https://mern-deploy-backend-twq1.onrender.com/api/products/uploadImage`,
       formData,
       config
     )
