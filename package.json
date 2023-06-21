@@ -8,7 +8,7 @@
     "start": "node backend/index",
     "server": "nodemon backend/index",
     "data:import": "node seeder",
-     "client": "cd frontend && npm run start",
+     "client": "cd frontend && npm start",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
     "install-server": "cd backend && npm install",
     "install-client":"cd frontend && npm install",
