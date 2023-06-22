@@ -28,7 +28,7 @@ const SettingsScreen = () => {
     
    
   const submitHandler = async (e) => {
-    
+     e.preventDefault();
     try {
       // Make an API request to update the settings
       const response = await fetch("/api/settings", {
