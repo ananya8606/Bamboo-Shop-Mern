@@ -27,8 +27,8 @@ const SettingsScreen = () => {
     }, [dispatch, success]);
 
     const submitHandler = (e) => {
-        e.preventDefault();
         dispatch(changeSettings(language, country, currency));
+         e.preventDefault();
     };
 
     return (
