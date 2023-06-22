@@ -17,7 +17,8 @@ const app = express();
 app.use(express.json());
 
 const corsOptions = {
-  origin: "https://mern-deploy-frontend-oz8c.onrender.com",
+origin: "https://mern-deploy-frontend-oz8c.onrender.com",
+allowedHeaders: ["Content-Type", "Authorization"],
 };
 
 app.use(cors(corsOptions));
