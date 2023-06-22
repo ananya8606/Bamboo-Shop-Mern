@@ -6,6 +6,9 @@ const userRoutes = require('./routes/userRoutes.js');
 const path = require('path');
 const orderRoutes = require('./routes/orderRoutes.js');
 const cors = require("cors");
+const https = require('https');
+const fs = require('fs');
+
 dotenv.config()
 // middleware
 const corsOptions = {
@@ -21,6 +24,12 @@ By calling app.use(express.json()), you are instructing your Express application
 middleware for all incoming requests.*/
 app.use(express.json())
 app.use(cors(corsOptions));
+
+// Set up HTTPS server
+const httpsOptions = {
+  key: fs.readFileSync('./key.pem'), // Replace with your private key file path
+  cert: fs.readFileSync('./certificate.pem'), // Replace with your certificate file path
+};
 const PORT = process.env.PORT || 5000
 /*app.use('/api/products', productRoutes) is configuring the Express application to use the 
 productRoutes middleware for any requests that match the /api/products path.*/
@@ -73,6 +82,8 @@ app.use((err, req, res, next) => {
     stack: process.env.NODE_ENV === 'production' ? null : err.stack,
   })
 })
-app.listen(PORT, () => {
-  console.log(`Backend running on port ${PORT}`)
-})
+const httpsServer = https.createServer(httpsOptions, app);
+
+httpsServer.listen(PORT, () => {
+  console.log(`Backend running on port ${PORT}`);
+});
