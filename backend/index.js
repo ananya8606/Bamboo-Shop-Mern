@@ -6,6 +6,7 @@ const userRoutes = require('./routes/userRoutes.js');
 const path = require('path');
 const orderRoutes = require('./routes/orderRoutes.js');
 const cors = require("cors");
+const cookieParser = require('cookie-parser');
 const https = require('https');
 const fs = require('fs');
 
@@ -16,14 +17,21 @@ const app = express();
 
 app.use(express.json());
 
-const corsOptions = {
-origin: "https://mern-deploy-frontend-oz8c.onrender.com",
-methods: ['GET', 'PUT', 'POST'],
-allowedHeaders: ['Content-Type', 'Authorization']
-};
+app.use(cors({
+  origin: 'https://mern-deploy-frontend-oz8c.onrender.com',
+  credentials: true  // Allow cookies to be sent
+}));
 
-app.use(cors(corsOptions));
+app.use(cookieParser());
 
+// Set the appropriate CORS headers
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', 'https://mern-deploy-frontend-oz8c.onrender.com');
+  res.header('Access-Control-Allow-Credentials', true);
+  res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
+  next();
+});
 
 const PORT = process.env.PORT || 5000;
 
