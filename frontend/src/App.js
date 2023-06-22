@@ -45,6 +45,7 @@ const App = () => {
         <Route path='/login' component={Login} exact />
         <Route path='/register' component={Register} exact />
         <Route path="/settings" component={SettingsScreen} exact />
+        <Route path="/settings?" component={SettingsScreen} exact />  
         <Route path='/cart/:id?' component={CartScreen} />
         <Route path='/shipping' component={Shipping} />
         <Route path='/payment' component={Payment} />
