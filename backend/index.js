@@ -23,13 +23,6 @@ allowedHeaders: ["Content-Type", "Authorization"],
 
 app.use(cors(corsOptions));
 
-const privateKeyPath = path.resolve(__dirname, 'private.key');
-const certificatePath = path.resolve(__dirname, 'certificate.crt');
-
-const httpsOptions = {
-  key: fs.readFileSync(privateKeyPath),
-  cert: fs.readFileSync(certificatePath),
-};
 
 const PORT = process.env.PORT || 5000;
 
@@ -64,8 +57,6 @@ app.use((err, req, res, next) => {
   });
 });
 
-const httpsServer = https.createServer(httpsOptions, app);
-
-httpsServer.listen(PORT, () => {
+app.listen(PORT, () => {
   console.log(`Backend running on port ${PORT}`);
 });
