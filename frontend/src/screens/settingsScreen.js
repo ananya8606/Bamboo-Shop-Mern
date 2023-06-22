@@ -25,32 +25,10 @@ const SettingsScreen = () => {
             }, 1500);
         }
     }, [dispatch, success]);
-    
-   
-  const submitHandler = async (e) => {
-     e.preventDefault();
-    try {
-      // Make an API request to update the settings
-      const response = await fetch("/api/settings", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ language, country, currency }),
-      });
-      
-      if (response.ok) {
-        // If the request was successful, dispatch the action to update Redux state
-        dispatch(changeSettings(language, country, currency));
-      } else {
-        // Handle error case
-        console.error("Failed to update settings");
-      }
-    } catch (error) {
-      console.error("Error occurred while updating settings:", error);
-    }
-  };
 
+    const submitHandler = (e) => {
+        dispatch(changeSettings(language, country, currency));
+    };
 
     return (
         <>
