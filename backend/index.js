@@ -24,8 +24,8 @@ By calling app.use(express.json()), you are instructing your Express application
 middleware for all incoming requests.*/
 app.use(express.json())
 app.use(cors(corsOptions));
-const privateKeyPath = path.join(__dirname, 'private.key');
-const certificatePath = path.join(__dirname, 'certificate.crt');
+const privateKeyPath = path.resolve(__dirname, 'private.key');
+const certificatePath = path.resolve(__dirname, 'certificate.crt');
 
 const httpsOptions = {
   key: fs.readFileSync(privateKeyPath),
