@@ -27,8 +27,8 @@ app.use(cors(corsOptions));
 
 // Set up HTTPS server
 const httpsOptions = {
-  key: fs.readFileSync('./key.pem'), // Replace with your private key file path
-  cert: fs.readFileSync('./certificate.pem'), // Replace with your certificate file path
+  key: fs.readFileSync('./private.key'), // Replace with your private key file path
+  cert: fs.readFileSync('./certificate.csr'), // Replace with your certificate file path
 };
 const PORT = process.env.PORT || 5000
 /*app.use('/api/products', productRoutes) is configuring the Express application to use the 
