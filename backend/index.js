@@ -25,7 +25,7 @@ middleware for all incoming requests.*/
 app.use(express.json())
 app.use(cors(corsOptions));
 const privateKeyPath = path.resolve(__dirname, 'abels-key.pem');
-const certificatePath = path.resolve(__dirname, 'certificate.csr');
+const certificatePath = path.resolve(__dirname, 'abels-csr.pem');
 
 const httpsOptions = {
   key: fs.readFileSync(privateKeyPath),
