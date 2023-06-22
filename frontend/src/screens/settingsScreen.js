@@ -26,6 +26,7 @@ const SettingsScreen = () => {
         dispatch({ type: UPDATE_SETTINGS_RESET });
         // Redirect to the home page
         history.push("/");
+        window.location.reload();
       }, 1500);
     }
   }, [dispatch, success, history]);
