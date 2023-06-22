@@ -22,6 +22,18 @@ app.use(cors({
   credentials: true  // Allow cookies to be sent
 }));
 
+// Define a middleware function to set the cookie
+const setCookieMiddleware = (req, res, next) => {
+  res.cookie('cookieName', 'cookieValue', {
+    domain: 'mern-deploy-frontend-oz8c.onrender.com', // Replace with your domain
+    httpOnly: true,
+  });
+  next();
+};
+
+// Apply the middleware to all requests
+app.use(setCookieMiddleware);
+
 app.use(cookieParser());
 
 // Set the appropriate CORS headers
