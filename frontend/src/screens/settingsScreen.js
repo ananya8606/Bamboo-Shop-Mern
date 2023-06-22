@@ -25,14 +25,14 @@ const SettingsScreen = () => {
         // after update, reset the success state
         dispatch({ type: UPDATE_SETTINGS_RESET });
         // Redirect to the home page
-        history.push("/");
-        window.location.reload();
+       // history.push("/");
+        //window.location.reload();
       }, 1500);
     }
   }, [dispatch, success, history]);
 
    const submitHandler = (e) => {
-    e.preventDefault();
+    //e.preventDefault();
     dispatch(changeSettings(language, country, currency));
   };
 
