@@ -24,11 +24,12 @@ By calling app.use(express.json()), you are instructing your Express application
 middleware for all incoming requests.*/
 app.use(express.json())
 app.use(cors(corsOptions));
+const privateKeyPath = path.resolve(__dirname, 'backend', 'private.key');
+const certificatePath = path.resolve(__dirname, 'backend', 'certificate.csr');
 
-// Set up HTTPS server
 const httpsOptions = {
-  key: fs.readFileSync('backend/private.key'), // Replace with your private key file path
-  cert: fs.readFileSync('backend/certificate.csr'), // Replace with your certificate file path
+  key: fs.readFileSync(privateKeyPath),
+  cert: fs.readFileSync(certificatePath),
 };
 const PORT = process.env.PORT || 5000
 /*app.use('/api/products', productRoutes) is configuring the Express application to use the 
