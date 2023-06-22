@@ -1,6 +1,7 @@
 import { UPDATE_SETTINGS } from "./types";
 
 export const changeSettings = (language, country, currency) => (dispatch) => {
+    console.log("Language changed");
     dispatch({
         type: UPDATE_SETTINGS,
         payload: { language, country, currency },
