@@ -32,11 +32,6 @@ const httpsOptions = {
   cert: fs.readFileSync(certificatePath),
 };
 
-
-const httpsOptions = {
-  key: fs.readFileSync(privateKeyPath),
-  cert: fs.readFileSync(certificatePath),
-};
 const PORT = process.env.PORT || 5000
 /*app.use('/api/products', productRoutes) is configuring the Express application to use the 
 productRoutes middleware for any requests that match the /api/products path.*/
