@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { UPDATE_SETTINGS_RESET } from "../actions/types";
 import { Form, Row, Col, Button } from "react-bootstrap";
 import FormContainer from "../components/formContainer";
-import { useHistory } from "react-router-dom";
 import { setLang } from "../Utils/setlang";
 import Message from "../components/Message";
 import { countrySettings, currencySettings } from "../Utils/settings";
@@ -26,10 +25,9 @@ const SettingsScreen = () => {
             }, 1500);
         }
     }, [dispatch, success]);
-    const history = useHistory();
+    
     const submitHandler = (e) => {
         dispatch(changeSettings(language, country, currency));
-        history.replace("/settings");
     };
 
     return (
