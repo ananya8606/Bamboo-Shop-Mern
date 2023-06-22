@@ -27,8 +27,6 @@ const SettingsScreen = () => {
     }, [dispatch, success]);
 
     const submitHandler = (e) => {
-        document.cookie = "COOKIE=
-jwtoken=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NDg5NzgwMGU4Nzk0NTMzZjQxMmRjNjciLCJpYXQiOjE2ODY3MzA5ODV9.55EvWc_-gCCVX0RmH_vhr0gPUmvl5VzBuFTiHBiikEQ; Secure; SameSite=None";
         dispatch(changeSettings(language, country, currency));
     };
 
