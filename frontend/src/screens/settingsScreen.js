@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 import { UPDATE_SETTINGS_RESET } from "../actions/types";
 import { Form, Row, Col, Button } from "react-bootstrap";
 import FormContainer from "../components/formContainer";
@@ -10,7 +11,8 @@ import { changeSettings } from "../actions/settings";
 import { setting } from "../Utils/translateLibrary/settings";
 
 const SettingsScreen = () => {
-    const dispatch = useDispatch();
+  const dispatch = useDispatch();
+  const history = useHistory();
     const settings = useSelector((state) => state.settings);
     const { success } = settings;
     const [language, setLanguage] = useState(settings.language);
@@ -18,17 +20,21 @@ const SettingsScreen = () => {
     const [country, setCountry] = useState(settings.country);
 
     useEffect(() => {
-        if (success) {
-            setTimeout(() => {
-                // after update, reset the success state
-                dispatch({ type: UPDATE_SETTINGS_RESET });
-            }, 1500);
-        }
-    }, [dispatch, success]);
+    if (success) {
+      setTimeout(() => {
+        // after update, reset the success state
+        dispatch({ type: UPDATE_SETTINGS_RESET });
+        // Redirect to the home page
+        history.push("/");
+      }, 1500);
+    }
+  }, [dispatch, success, history]);
 
-    const submitHandler = (e) => {
-        dispatch(changeSettings(language, country, currency));
-    };
+   const submitHandler = (e) => {
+    e.preventDefault();
+    dispatch(changeSettings(language, country, currency));
+  };
+
 
     return (
         <>
