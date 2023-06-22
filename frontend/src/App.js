@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route,Redirect } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Home from './screens/Home'
 import Footer from './components/Footer'
@@ -45,7 +45,7 @@ const App = () => {
         <Route path='/login' component={Login} exact />
         <Route path='/register' component={Register} exact />
         <Route path="/settings" component={SettingsScreen} exact />
-        <Route path="/settings?" component={SettingsScreen} exact />  
+        <Redirect from="/settings?" to="/settings" /> 
         <Route path='/cart/:id?' component={CartScreen} />
         <Route path='/shipping' component={Shipping} />
         <Route path='/payment' component={Payment} />
