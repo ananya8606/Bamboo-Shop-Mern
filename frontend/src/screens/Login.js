@@ -95,7 +95,7 @@ const { language } = settings;
         </form>
         <span>{l.ol[language]}</span>
         <button className='google-btn' onClick={signInGoogle}>
-          <img src='/Images/google1.jpg' alt='' />
+          <img src='.../Images/google1.jpg' alt='' />
           <span className='g-text'>{l.google[language]}</span>
         </button>
 
