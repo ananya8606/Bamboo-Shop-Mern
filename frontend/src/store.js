@@ -32,6 +32,11 @@ import {
 } from './reducers/userReducers'
 import { cartReducer } from './reducers/cartReducers'
 import { changeSettingsReducer } from "./reducers/settingsReducers";
+
+/*The combineReducers function is imported from Redux to combine multiple reducers into a single reducer function.
+It takes an object as an argument, where each key represents a slice of the state and its value represents the
+corresponding reducer function. 
+These reducer functions define how the state should be updated in response to different actions.*/
 const reducer = combineReducers({
   // Product
   productList:productListReducer,
@@ -64,6 +69,11 @@ const reducer = combineReducers({
   orderDeliver:orderDeliverReducer,
 
 })
+
+/*The code defines initial values for the cartItemsFromStorage, userInfoFromStorage, shippingAddressFromStorage, paymentMethodFromStorage, and
+settingsFromStorage variables by retrieving data from the browser's localStorage. These values will be used as the initial state of the corresponding
+slices in the Redux store.*/
+
 const cartItemsFromStorage = localStorage.getItem("cartItems")
     ? JSON.parse(localStorage.getItem("cartItems"))
     : [];
@@ -84,6 +94,8 @@ const settingsFromStorage = localStorage.getItem("settings")
     ? JSON.parse(localStorage.getItem("settings"))
     : { language: "en", country: "in", currency: "inr" };
 
+/*The initialState constant is defined to represent the initial state of the Redux store. 
+It is an object that includes the initial values for the cart, settings, and userLogin slices.*/
 const initialState = {
   cart: {
       cartItems: cartItemsFromStorage,
@@ -94,7 +106,14 @@ const initialState = {
   userLogin: { userInformation: userInfoFromStorage },
 }
 
+/*The middleware constant is an array that contains the thunk middleware. Middleware can intercept
+dispatched actions and perform async operations or modify actions before they reach the reducers.*/
+
 const middleware = [thunk]
+  
+/*The createStore function is imported from Redux to create a Redux store. It is responsible for holding the complete state tree of your application.
+The applyMiddleware function is imported from Redux to apply middleware to the dispatch process of Redux. Middleware provides a way to extend Redux's functionality.
+The composeWithDevTools function is imported from the Redux DevTools Extension package. It enhances the Redux DevTools extension, allowing you to use additional debugging capabilities.*/
 const store = createStore(
   reducer,
   initialState,
