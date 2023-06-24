@@ -26,6 +26,7 @@ const { language } = settings;
     firebase.initializeApp(firebaseConfig)
   }
   console.log('fbbase', process.env.REACT_APP_PROJECTID)
+  const [isSigningIn, setIsSigningIn] = useState(false);
   var provider = new firebase.auth.GoogleAuthProvider()
   const signInGoogle = () => {
     firebase
@@ -43,6 +44,9 @@ const { language } = settings;
         let email = error.email
         let credential = error.credential
       })
+    .finally(() => {
+      setIsSigningIn(false); // Reset the loading state after sign-in completion (success or failure)
+    });
   }
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -94,10 +98,14 @@ const { language } = settings;
           <button type='submit'>{l.si[language]}</button>
         </form>
         <span>{l.ol[language]}</span>
-        <button className='google-btn' onClick={signInGoogle}>
-          <img src='.../Images/google1.jpg' alt='' />
-          <span className='g-text'>{l.google[language]}</span>
-        </button>
+       <button className='google-btn' onClick={signInGoogle} disabled={isSigningIn}>
+     {isSigningIn ? 'Signing In...' : (
+    <>
+      <img src='.../Images/google1.jpg' alt='' />
+      <span className='g-text'>{l.google[language]}</span>
+    </>
+  )}
+</button>
 
         <span>{l.nr[language]}</span>
         <Link to={`/register?redirect=${redirect}`}>{l.rg[language]}</Link>
