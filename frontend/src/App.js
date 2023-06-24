@@ -21,6 +21,13 @@ import AdminUsers from './screens/AdminUsers'
 import ProductCreate from './screens/ProductCreate'
 import ProductEdit from './screens/ProductEdit'
 import UserAccountScreen from './screens/UserAccountScreen'
+
+/*The Switch component is used to render the routes within the application. It ensures that only one route is rendered at a time by 
+matching the current URL to the specified paths.
+Multiple Route components are defined within the Switch component. Each Route component represents a specific route in the application
+and specifies the path and component to render when the URL matches that path.
+The exact attribute is used for the routes that require an exact match of the URL path.*/
+
 const App = () => {
   return (
     <Router>
