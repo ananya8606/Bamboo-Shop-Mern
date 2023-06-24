@@ -7,8 +7,17 @@ import {
 } from '../constants/cartConstants'
 
 export const addToCart = (id, qty) => async (dispatch, getState) => {
-  const { data } = await axios.get(`https://mern-deploy-backend-twq1.onrender.com/api/products/${id}`)
 
+/*The axios.get() method returns a promise that resolves with a response object.
+The response object contains various properties, but the code snippet is specifically interested in the data property.
+The destructuring assignment syntax is used to extract the data property from the response object.
+This line of code { data } = await axios.get(...) assigns the value of data from the response object to a constant named data.*/
+  
+  const { data } = await axios.get(`https://mern-deploy-backend-twq1.onrender.com/api/products/${id}`)
+  
+/*A Redux action is dispatched using the dispatch function passed as an argument to the action creator. 
+The dispatched action is an object that describes the action to be performed.*/
+  
   dispatch({
     type: CART_ADD_ITEM,
     payload: {
@@ -18,12 +27,19 @@ export const addToCart = (id, qty) => async (dispatch, getState) => {
       price: data.discountedCost,
       countInStock: data.quantity,
       qty,
-
       category: data.category,
       subCategory: data.subCategory,
     },
   })
+  
+/*After dispatching the action, the current cart items from the Redux store are stored
+in the browser's localStorage using localStorage.setItem(). The getState() function is 
+used to retrieve the current state from the Redux store, and getState().cart.cartItems specifically accesses the cart items.
 
+By calling the addToCart action creator with the appropriate id and qty parameters, it triggers an asynchronous HTTP request to
+fetch the product data. Once the data is received, it dispatches a CART_ADD_ITEM action with the product details as the payload.
+Finally, it updates the cart items in the localStorage to reflect the changes made to the cart.*/
+  
   localStorage.setItem('cartItems', JSON.stringify(getState().cart.cartItems))
 }
 
