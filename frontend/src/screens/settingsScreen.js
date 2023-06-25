@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { UPDATE_SETTINGS_RESET } from "../actions/types";
+import { UPDATE_SETTINGS_RESET } from "../constants/types";
 import { Form, Row, Col, Button } from "react-bootstrap";
 import FormContainer from "../components/formContainer";
 import { setLang } from "../Utils/setlang";
