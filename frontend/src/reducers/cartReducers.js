@@ -13,7 +13,10 @@ import {
     switch (action.type) {
       case CART_ADD_ITEM:
         const item = action.payload
-  
+            
+  /*the product property of an item is used as a unique identifier or key to determine whether an item
+  should be removed from the cart. Each item in the cartItems array is expected to have a product property that corresponds to a unique identifier for that item.*/
+            
         const existItem = state.cartItems.find((x) => x.product === item.product)
             
   /*...state: The spread operator (...) is used to create a shallow copy of the current state object. This ensures that the original state is not mutated directly.
