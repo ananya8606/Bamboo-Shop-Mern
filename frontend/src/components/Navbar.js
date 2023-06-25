@@ -6,6 +6,58 @@ import { logout } from '../actions/userActions'
 import { useDispatch, useSelector } from 'react-redux'
 import { useTranslation } from "react-i18next";
 import { nav } from "../Utils/translateLibrary/navbar";
+
+/*const { t } = useTranslation();:
+
+This line uses the useTranslation hook to access the translation function t from a translation library or context.
+The useTranslation hook is commonly used in internationalization (i18n) scenarios to retrieve translated strings based on the selected language.
+By using const { t } = useTranslation();, the t function is assigned to the t constant, allowing you to use it within
+the component to retrieve translated strings.
+
+const dispatch = useDispatch();:
+
+This line uses the useDispatch hook from the react-redux library to access the Redux store's dispatch function.
+The dispatch function is used to dispatch actions to the Redux store, which can trigger state updates and other side effects.
+By using const dispatch = useDispatch();, the dispatch function is assigned to the dispatch constant, 
+allowing you to use it within the component to dispatch actions to the Redux store.*/
+
+/*Actions and reducers are essential parts of the Redux pattern, which is a predictable state management 
+system commonly used in React applications. Here's a high-level overview of how actions and reducers work together:
+
+Actions:
+
+Actions are plain JavaScript objects that represent an intention to change the state.
+They describe what happened in the application, such as a user interaction or an asynchronous API call.
+Actions have a type property that specifies the type of action being performed. This type is typically defined as a string constant.
+Actions can also have additional data or payload that provides information needed to update the state.
+
+Action Creators:
+
+Action creators are functions that create and return action objects.
+They encapsulate the logic for creating actions and can also perform any necessary transformations or calculations before returning the action object.
+Action creators are typically used to encapsulate complex or asynchronous operations, such as API calls, before dispatching the resulting action.
+
+Reducers:
+
+Reducers are pure functions that specify how the application's state should change in response to actions.
+They take the current state and an action as arguments and return a new state object based on the action type and payload.
+Reducers should not mutate the existing state but instead create a new state object with the desired changes.
+Reducers are typically defined for each slice of the application's state and combined using a root reducer.
+
+Store:
+
+The store holds the application state, which is managed by reducers and updated in response to dispatched actions.
+The store is created using the createStore function provided by the Redux library.
+It provides methods like getState to access the current state and dispatch to dispatch actions to the reducers.
+
+Dispatching Actions:
+
+Actions are dispatched to the store using the dispatch method provided by the store.
+Dispatching an action triggers the corresponding reducer(s) to handle the action and update the state accordingly.
+The store notifies subscribers, such as React components, about the state changes, causing them to re-render with the updated data.
+Overall, the flow can be summarized as follows: 
+Actions are dispatched, reducers handle the actions and update the state, and components subscribe to the state changes and re-render based on the updated state.*/
+
 const Navbar = () => {
 const { t } = useTranslation();
 const dispatch = useDispatch();
