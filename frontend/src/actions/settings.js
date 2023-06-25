@@ -1,4 +1,4 @@
-import { UPDATE_SETTINGS } from "./types";
+import { UPDATE_SETTINGS } from  '../constants/types';
 
 export const changeSettings = (language, country, currency) => (dispatch) => {
     console.log("Language changed");
