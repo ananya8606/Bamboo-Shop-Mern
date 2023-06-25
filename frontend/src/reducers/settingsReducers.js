@@ -1,4 +1,4 @@
-import { UPDATE_SETTINGS, UPDATE_SETTINGS_RESET } from "../actions/types";
+import { UPDATE_SETTINGS, UPDATE_SETTINGS_RESET } from "../constants/types";
 
 export const changeSettingsReducer = (state = { success: false }, action) => {
     switch (action.type) {
