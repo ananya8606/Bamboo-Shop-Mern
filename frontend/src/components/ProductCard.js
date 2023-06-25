@@ -3,6 +3,10 @@ import { Link } from 'react-router-dom'
 import Rating from '../components/Rating'
 import { useSelector } from 'react-redux'
 import { p } from "../Utils/translateLibrary/productDetails";
+
+/*The code uses the useSelector hook from react-redux to access the Redux store.
+It extracts the settings object from the store, which likely contains language and currency information.*/
+
 const ProductCard = ({ product }) => {
 const settings = useSelector((state) => state.settings);
 const { language,currency } = settings;
