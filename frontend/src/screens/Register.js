@@ -26,6 +26,8 @@ const Register = () => {
     const dispatch = useDispatch()
     const userLogin = useSelector((state) => state.user.userLogin)
     const { userInformation } = userLogin
+    const userRegister = useSelector((state) => state.user.userRegister)
+    const { loading,error } = userRegister
     const location=useLocation();
     const redirect = location.search && location.search.split('=')[1]
    const history=useNavigate();
